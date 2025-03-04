@@ -1,0 +1,225 @@
+.chat-container {
+  position: relative;
+  width: 80%;
+  max-width: 800px;
+  margin: 2rem auto;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  height: 60vh;
+}
+
+.chat-messages {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.message {
+  display: flex;
+  padding: 8px 12px;
+  margin: 4px 0;
+}
+
+.user-message {
+  justify-content: flex-end;
+}
+
+.ai-message {
+  justify-content: flex-start;
+}
+
+.message-content {
+  max-width: 70%;
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-size: 14px;
+  line-height: 1.6;
+  word-wrap: break-word;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Markdown 样式 */
+.message-content pre {
+  background-color: #f6f8fa;
+  padding: 0.5em 0;
+  border-radius: 6px;
+  overflow-x: auto;
+}
+
+.message-content code {
+  background-color: rgba(175, 184, 193, 0.2);
+  padding: 0.2em 0.4em;
+  border-radius: 6px;
+  font-family: monospace;
+}
+
+.message-content p {
+  margin: 0.3em 0;
+}
+
+.message-content ul, 
+.message-content ol {
+  margin: 0.3em 0;
+  padding-left: 1.2em;
+}
+
+.message-content blockquote {
+  border-left: 3px solid #d1d5db;
+  margin: 0.3em 0;
+  padding-left: 0.8em;
+  color: #666;
+}
+
+/* 代码块语法高亮 */
+.message-content pre code {
+  background-color: transparent;
+  padding: 0;
+}
+
+.user-message .message-content {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  margin-left: auto;
+}
+
+.ai-message .message-content {
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  margin-right: auto;
+}
+
+/* AI消息的Markdown样式 */
+.ai-message .message-content {
+  h3 {
+    color: white;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    padding-bottom: 10px;
+    margin: 1em 0 0.5em 0;
+  }
+
+  strong { color: white; }
+
+  ul {
+    padding-left: 20px;
+    margin: 0.5em 0;
+  }
+
+  li { margin: 10px 0; }
+
+  a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    &:hover {
+      color: white;
+      text-decoration: underline;
+    }
+  }
+}
+
+.chat-input-form {
+  display: flex;
+  gap: 10px;
+  padding: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.chat-input {
+  flex-grow: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 14px;
+}
+
+.chat-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.send-button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.send-button:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* 自定义滚动条样式 */
+.chat-messages::-webkit-scrollbar {
+  width: 6px;
+}
+
+.chat-messages::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.chat-messages::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+}
+
+.chat-header {
+  position: absolute;
+  top: -50px;
+  right: 0;
+  padding: 10px;
+}
+
+.clear-button {
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  color: white;
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.clear-button:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.clear-button:active {
+  transform: translateY(0);
+}
+
+/* 添加这些样式确保动画显示正常 */
+.typing-animation {
+  display: inline-flex !important;
+  align-items: center !important;
+  height: 24px !important;
+}
+
+.typing-animation span {
+  display: inline-block !important;
+  width: 8px !important;
+  height: 8px !important;
+  margin: 0 2px !important;
+  background-color: #fff !important; /* 改为白色以匹配你的主题 */
+  border-radius: 50% !important;
+  opacity: 0.6 !important;
+  animation: typing 1.4s infinite ease-in-out both !important;
+} 
