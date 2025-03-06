@@ -116,7 +116,7 @@ const ChatBox = () => {
         }, []);
 
       // 发送请求到后端
-      const response = await fetch('http://localhost:8000/api/ask', {
+      const response = await fetch('https://betagpt-3let.onrender.com/api/ask', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
