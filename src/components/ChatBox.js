@@ -129,12 +129,12 @@ const ChatBox = () => {
 
       const data = await response.json();
       
-      // 添加AI响应
-      const aiMessage = {
-        text: data.answer,  // 修改这里匹配后端返回的字段名
-        isUser: false,
-        timestamp: new Date().toISOString()
-      };
+      // // 添加AI响应
+      // const aiMessage = {
+      //   text: data.answer,  // 修改这里匹配后端返回的字段名
+      //   isUser: false,
+      //   timestamp: new Date().toISOString()
+      // };
 
       // 添加调试日志
       console.log('AI response received:', data);// 请求成功后，用实际回复替换临时消息
